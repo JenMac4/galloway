@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+    <div class="header-container">
+        <h2 class="heading">Galloway Forest Park</h2>
+        <div class="parallax-layer layer3"></div>
+        <div class="parallax-layer layer2"></div>
+        <div class="parallax-layer layer1"></div>
+
+
+    </div>
+
+    <!-- <div class="spacer"></div> -->
+
+
+    <div class="nature-container">
+
+
+        <img src="../assets/photos/8.png" class="bird1 bird" alt="">
+        <img src="../assets/photos/5.png" class="bird2 bird" alt="">
+
+        <div class="about-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis sapiente blanditiis, recusandae, qui veniam adipisci repudiandae voluptate itaque a fuga ab molestias soluta, tempore architecto quod nostrum labore magnam pariatur ad ut eveniet exercitationem. Voluptatum officia, nostrum voluptatibus, doloremque deserunt laudantium pariatur accusamus voluptates officiis quas dolor alias nesciunt magni at praesentium ipsa sed similique ut ab mollitia iste voluptate.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum dolore corporis culpa dolorum incidunt voluptas eum molestiae debitis officia magnam repellendus ratione, saepe a eaque error quas. Nostrum, fuga voluptatum!
+        </div>
+
+        <div class="filler-nature-container"></div>
+
+        <img src="../assets/photos/forest.png" class="forest" anchor=".nature-container" alt="">
+        <!-- <div class="black-filler"></div> -->
+
+    </div>
+
+    <div class="night-sky">
+
+        <h3 class="dark-header">Dark Sky Park</h3>
+        <div>
+            <p class="about-text-night">
+
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis sapiente blanditiis, recusandae, qui veniam adipisci repudiandae voluptate itaque a fuga ab molestias soluta, tempore architecto quod nostrum labore magnam pariatur ad ut eveniet exercitationem. Voluptatum officia, nostrum voluptatibus, doloremque deserunt laudantium pariatur accusamus voluptates officiis quas dolor alias nesciunt magni at praesentium ipsa sed similique ut ab mollitia iste voluptate.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum dolore corporis culpa dolorum incidunt voluptas eum molestiae debitis officia magnam repellendus ratione, saepe a eaque error quas. Nostrum, fuga voluptatum!
+
+            </p>
+        </div>
+
+    </div>
+
+    <!-- <span class="mobile-filler-dark"></span> -->
+
+    <div class="night-to-day"></div>
+
+    <div class="general-information">
+
+        <p class="display-weather"></p>
+
+        <!-- YOU SHOULD REALLY DO THIS WITH AYNC -->
+        <iframe class="map"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9136.696020795736!2d-4.151020520009539!3d55.07520416545242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486292c9c9f03d3d%3A0xdbfb95caf742e16e!2sNew%20Galloway%2C%20Castle%20Douglas!5e0!3m2!1sen!2suk!4v1708027141898!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div>
+    <div class="page-break"></div>
+    <div class="page-break"></div>
+    
+    <!-- Include GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- Include ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- <script src="https://unpkg.com/scrolltrigger@1.0.9/dist/ScrollTrigger.min.js"></script> -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <!-- free split type  -->
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="../assets/scripts/apiCalls.js"></script>
+    <script>
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const isMobile = window.innerWidth < 768;
+
+    const splitText = document.querySelectorAll('.about-text-night');
+
+
+        console.log(SplitType)
+        splitText.forEach((char,i) => {
+
+        const text = new SplitType(char, { types: 'chars,words'})
+
+        gsap.from(text.chars, {
+            scrollTrigger: {
+                trigger: char,
+                start: 'top 80%',
+                end: 'bottom bottom',
+                scrub: true,
+                markers: false
+            },
+            opacity: 0.2,
+            stagger: 0.1
+        })
+        
+    });
+    // gsap.to(".about-text-night" , {
+    //     backgroundPositionX: "0%",
+    //     stagger: 1,
+    //     scrollTrigger: {
+    //         trigger: ".night-sky",
+    //         scrub: 1,
+    //         start: "top top",
+    //         end: "bottom bottom",
+    //         markers: true
+    //     }
+    // })
+
+
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.header-container',
+            start: 'top top',
+            end: 'bottom center',
+            scrub: true,
+            markers: false
+        }
+    });
+
+    // tl.to('.parallax-layer', {
+    //     scale: 1
+    //     })
+    tl.to('.layer3', {
+        scale: 1
+        })
+        .to('.layer2',{
+            scale: 1.2,
+            x: 100,
+            y: -20
+        }, "-=.5")
+        .to('.layer1', {
+            scale: 1.2,
+            y: -50
+        }, "-=.5" )
+        // .to('parallax-layer', {
+        //     y: -300
+        // }, "-=0.1")
+
+    let timeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.nature-container',
+            start: 'top center',
+            end: 'bottom center',
+            scrub: 0.5,
+            markers: false
+        }
+    })
+
+    if(!isMobile){
+
+        let timelineTrees = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.nature-container',
+                start: 'top center',
+                end: 'bottom -100%',
+                scrub: 0.5,
+                markers: false
+            }
+        })
+
+        ttimelineTrees
+                .to('.forest', {y: -200, ease: 'power2.inOut', scale: 1.05})
+                .to('.black-filler', {y: -200, ease: 'power2.inOut'})
+                // .to('.forest', {y: -200, ease: 'power2.inOut', scale: 1.05}, "-=.2")
+                // .to('.forest', {y: -200, ease: 'power2.inOut', scale: 1.05}, "+=.8")
+    }
+    else {
+
+        let timelineTrees = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.nature-container',
+                start: 'top center',
+                end: 'bottom top',
+                scrub: 0.5,
+                markers: true
+            }
+        })
+        timelineTrees
+                .to('.forest', {y: -200, ease: 'power2.inOut', scale: 1.05})
+                .to('.black-filler', {y: -200, ease: 'power2.inOut'})
+                // .to('.forest', {y: -200, ease: 'power2.inOut', scale: 1.05}, "-=.2")
+                // .to('.forest', {y: -200, ease: 'power2.inOut', scale: 1.05}, "+=.8")
+
+        
+    }
+    
+    
+    timeline
+            .to('.bird1', { x:400, ease: 'power2.inOut'})
+            .to('.bird2', { x:-550, ease: 'power2.inOut'}, "-=.5")
+
+
+
+
+    
+
+            const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+//   console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+
+</script>
+</body>
+</html>

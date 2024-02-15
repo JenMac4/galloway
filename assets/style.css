@@ -1,0 +1,346 @@
+:root{
+    --main-font: "Garamond", serif;
+    --bg-colour: #6796AA;
+}
+
+body {
+    margin: 0; /* Remove default margin */
+    background-color: #6796AA;
+  }
+  
+  .header-container {
+    height: 110vh;
+    position: relative;
+    overflow: hidden;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    /* flex-direction: column;  */
+}
+
+/* .spacer{
+    
+    
+    width: 100vw;
+    background: linear-gradient(to top, #6796AA, #628254);
+} */
+
+.heading{
+    /* display: flex;
+    justify-content: center; */
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-family: var(--main-font);
+    color: antiquewhite;
+    font-size: 5em;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -75%);
+  }
+  
+  .parallax-layer {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    scale: 1.4;
+    /* Set other styling properties */
+  }
+
+  .layer3{
+    position: absolute;
+    bottom:0;
+    right:0;
+    z-index: 2;
+    width: 100%;
+}
+.layer2{
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 2;
+}
+.layer1{
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 3;
+  }
+
+  .header-container::after{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    height: 100px;
+    width: 100vw;
+    background: linear-gradient(to top, #6796AA, #628254);
+    z-index: 5;
+}
+
+  .page-break{
+    height: 100vh;
+  }
+  
+  .layer1 {
+    background-image: url(../assets/photos/HillTake3.png);
+  }
+  
+  .layer2 {
+    background-image: url('../assets/photos/HillTake3-2.png');
+  }
+  
+  .layer3 {
+    background-image: url('../assets/photos/HillTake3-3.png');
+  }
+
+  /* 6:26 for psuedo element, this is important */
+  
+
+  /*styles for index2*/
+
+  .spacer{
+    height: 100vh;
+  }
+
+  .animated-element{
+    width: 300px;
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    border-radius: 8px;
+    position: relative;
+    left: -400px;
+  }
+   /* //////////////*/
+   /* about section */
+   /* //////////////*/
+
+   .about-text{
+    color: antiquewhite;
+    margin: 30px 100px;
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 150px;
+   }
+
+   .nature-container{
+    position: relative;
+   }
+
+   .bird1{
+    /* scale: 0.1; */
+    width: 7em;
+    position:absolute;
+    top:5%;
+    left:-10%;
+    /* top:-150%;
+    left:-60%; */
+
+   }
+   .bird2{
+    /* scale: 0.07; */
+    width: 5em;
+    position:absolute;
+    top:5%;
+    left:110%;
+   }
+
+   .forest{
+    width: 100%;
+    position: absolute;
+    /* experimenting with anchor, below is original code */
+    bottom: -190%;
+    /* bottom: anchor(-190%); */
+   }
+
+   .black-filler{
+    position: absolute;
+    height: 20vh;
+    width: 100%;
+    background-color: black;
+    bottom: -190%;
+    
+   }
+
+   .filler-nature-container{
+
+   }
+
+   .mobile-filler-dark{
+    /* display: none; */
+    background-color: black;
+
+   }
+   /* ///////////// */
+   /* night sky     */
+   /* ///////////// */
+
+   .night-sky{
+    margin-top: 25%;
+    position: relative;
+    
+    
+    height: 110vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+   }
+
+   .dark-header{
+    color: white;
+    font-family: var(--main-font);
+    text-align: center;
+    font-size: 3em;
+   }
+
+   .about-text-night{
+
+    color: antiquewhite;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 0 7em;
+    padding-bottom: 20em;
+   }
+
+   .night-to-day{
+    width: 100%;
+    height: 20vh;
+    background: linear-gradient(to bottom, black, var(--bg-colour))
+    /* background: linear-gradient(#e66465, #9198e5); */
+   }
+
+
+   /* ///////////// */
+   /* general info  */
+   /* ///////////// */
+
+   .general-information{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+    position: relative;
+    height: 100vh;
+    background-color: var(--bg-colour);
+   }
+
+   .display-weather{
+    color: white;
+    text-align: center;
+    font-size:  1.5em;
+    padding-top: 5%;
+
+   }
+
+    /* ///////////// */
+    /* media queries */
+    /* ///////////// */
+
+    @media only screen and (min-width: 1450px){
+
+      .forest{
+        bottom: -290%;
+      }
+    }
+
+
+    @media only screen and (max-width: 1040px) {
+        /* .bird1{
+            position:absolute;
+            top:-150%;
+            left:-60%;
+            scale: 0.1;
+        
+           }
+           .bird2{
+            scale: 0.07;
+            position:absolute;
+            top:-150%;
+            left:80%;
+           } */
+           .about-text-night{
+
+            padding-bottom: 0em;
+           }
+
+           
+      }
+
+      @media only screen and (max-width: 600px) {
+
+        .heading{
+          font-size: 2em;
+          margin: 0;
+          display: grid;
+          place-items: center;
+        }
+        .forest{
+            bottom: -30%;
+            /* margin-top: 10%; */
+
+        }
+        .night-sky{
+          height: 90vh;
+          justify-content: flex-start;
+          margin-top: 0;
+          padding-top: 25%;
+        }
+        .nature-container{
+          padding-bottom: 10%;
+        }
+        .dark-header{
+          margin-top:5%;
+        }
+
+        .about-text {
+          font-size: 1.1em;
+        }
+
+        .mobile-filler-dark{
+          display: block;
+        }
+
+        .display-weather{
+          
+          font-size:  1.1em;
+          padding-top: 5%;
+      
+         }
+
+
+        .bird1{
+            
+            left:-30%;
+            
+        
+           }
+           .bird2{
+            left: 130%;
+            display: none;
+           }
+
+          .about-text-night {
+            font-size: 1em;
+            /* padding: 1em; */
+          }
+
+          .map{
+            padding-top: 10%;
+            width: 70%;
+          }
+      }
